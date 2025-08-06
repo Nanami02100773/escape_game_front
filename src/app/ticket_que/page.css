@@ -4,7 +4,7 @@
     width: 80%;
     height: 48px;
     margin: 0 auto 0 auto;
-    background: linear-gradient(90deg, #4f8cff 0%, #3358e0 100%);
+    background: #55555559;
     border-radius: 50px;
     font-size: 2rem; /* pxからremに変更してレスポンシブ対応 */
     text-align: center;
