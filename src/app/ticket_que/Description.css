@@ -1,0 +1,37 @@
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto 10px 0;
+}
+
+.summary-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 5%;
+  color: #333;
+}
+
+/* 新しい共通ラッパー */
+.summary-box {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  padding: 16px;
+  width: 90%;
+  margin: 0 auto 10px auto;
+}
+
+/* content（文章部分） */
+.summary-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+/* image部分 */
+.summary-image {
+  max-width: 100%;
+  border-radius: 4px;
+  display: block;
+}
