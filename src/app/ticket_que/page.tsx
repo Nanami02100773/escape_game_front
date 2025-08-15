@@ -1,17 +1,53 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Description from './Description'; // パスはプロジェクト構成に合わせて調整
 import './page.css'; // スタイルシートのパス
 import descriptionImage from './descriptionImage.png'; // パスはプロジェクト構成に合わせて調整
 import Header from './Header'; // ヘッダーコンポーネントのインポート
 
+type Ticket = {
+    ticket_number: string;
+    number_of_people: number;
+    status: string;
+};
+
 const TicketQuePage: React.FC = () => {
-    const waitGroupCount = 12;
-    const currentGroupNumber = 34;
+    const [waitGroupCount, setWaitGroupCount] = useState<number>(0);
+    const [currentGroupNumber, setCurrentGroupNumber] = useState<number>(0);
     // 表示する内容を管理するstate
     const [displayText, setDisplayText] = useState(waitGroupCount);
     const [showTitle, setShowTitle] = useState('待ち組数');
     const [showGroup, setShowGroup] = useState(true);
+
+    useEffect(() => {
+        const fetchTickets = async () => {
+            try {
+                const res = await fetch('https://fastapi-on-vercel-pi.vercel.app/api/tickets');
+                const data: Ticket[] = await res.json();
+
+                // "未呼び出し"の数
+                const waitCount = data.filter(ticket => ticket.status === '未呼び出し').length;
+                setWaitGroupCount(waitCount);
+
+                // "呼び出し中"の最大番号
+                const calledTickets = data
+                    .filter(ticket => ticket.status === '呼び出し中')
+                    .map(ticket => Number(ticket.ticket_number))
+                    .filter(num => !isNaN(num));
+                const maxCalled = calledTickets.length > 0 ? Math.max(...calledTickets) : 0;
+                setCurrentGroupNumber(maxCalled);
+
+                // 初期表示
+                setDisplayText(waitCount);
+            } catch (e) {
+                // エラー時は0表示
+                setWaitGroupCount(0);
+                setCurrentGroupNumber(0);
+                setDisplayText(0);
+            }
+        };
+        fetchTickets();
+    }, []);
 
     return (
         <div>
