@@ -18,6 +18,7 @@ const TicketQuePage: React.FC = () => {
     const [displayText, setDisplayText] = useState(waitGroupCount);
     const [showTitle, setShowTitle] = useState('待ち組数');
     const [showGroup, setShowGroup] = useState(true);
+    const [loading, setLoading] = useState(true); // 追加
 
     useEffect(() => {
         const fetchTickets = async () => {
@@ -27,6 +28,7 @@ const TicketQuePage: React.FC = () => {
 
                 // "未呼び出し"の数
                 const waitCount = data.filter(ticket => ticket.status === '未呼び出し').length;
+                console.log('Fetched tickets:', data);
                 setWaitGroupCount(waitCount);
 
                 // "呼び出し中"の最大番号
@@ -44,14 +46,25 @@ const TicketQuePage: React.FC = () => {
                 setWaitGroupCount(0);
                 setCurrentGroupNumber(0);
                 setDisplayText(0);
+            } finally {
+                setLoading(false); // 読み込み完了
             }
         };
         fetchTickets();
     }, []);
 
+    if (loading) {
+        return (
+            <div className="loading-message">
+                読み込み中...
+            </div>
+        );
+    }
     return (
         <div>
-            <Header />
+            <div className="header">
+                <img src="/reload_icon.png" alt="Logo" className="logo" onClick={() => window.location.reload()}/>
+            </div>
             <div className="title">脱出ゲーム</div>
             <div className="attraction-queue">
                 {showGroup && (
@@ -69,9 +82,9 @@ const TicketQuePage: React.FC = () => {
                                 }}>待ち組数</button>
 
                                 <button onClick={() => {
-                                    setShowTitle('現在の番号');
+                                    setShowTitle('お呼び出し番号');
                                     setDisplayText(currentGroupNumber);
-                                }}>現在の番号</button>
+                                }}>お呼び出し番号</button>
                             </div>
                             <div className="button-row">
                             <button className="full-width-button" onClick={() => setShowGroup(!showGroup)}>企画説明</button>
