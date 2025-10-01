@@ -1,0 +1,90 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #f2f2f2; /* 背景を全体に適用 */
+}
+
+
+
+.attraction-queue {
+  top: 0px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* 全体の画面設定 */
+.queue-container {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  background: #f2f2f2;
+  padding-top: 150px; /* ← ここを増やすと全体が下がる */
+  box-sizing: border-box;
+}
+
+
+.button-group,
+.desription-button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 5vh 0;
+  width: 100%;
+  max-width: 400px;
+  padding-top: 15;
+}
+
+/* 上段の横並びボタン */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  height: 80px;
+}
+
+/* ボタンのデザイン */
+.button-row button,
+.full-width-button {
+  flex: 1;
+  padding: 0;
+  font-size: 1.2rem;
+  background-color: #ccc;
+  border: none;
+  border-radius: 8px;
+}
+
+/* 企画説明ボタン（下段の1つ） */
+.full-width-button {
+  width: 100%;
+}
+
+
+.description-container {
+  flex: 1;
+  overflow: auto;
+  margin: 20% 0 0 0;
+  display: flex;
+  padding: 0 20px;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  box-sizing: border-box;
+}
+
+/* 1024px以上の端末向け（PCなど） */
+@media (min-width: 1024px) {
+  .queue-container {
+    padding-top: 100px;
+    flex-direction: row; /* 横並びに変更 */
+    justify-content: center;
+  }
+
+  .description-container {
+    width: 60%;
+    margin-top: 0;
+  }
+}

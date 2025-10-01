@@ -1,0 +1,34 @@
+/* メインの待ち組数／呼び出し番号表示 */
+.display-box {
+  width: 80vw;
+  max-width: 400px;
+  height: auto;
+  background-color: #fff;
+  border: 4px solid #777;
+  border-radius: 16px; /* 角丸を入れて柔らかさを調整 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* 上部タイトル（待ち組数 or お呼び出し番号） */
+.display-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* 数字部分 */
+.display-number {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  font-weight: bold;
+  color: #333;
+}

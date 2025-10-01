@@ -1,0 +1,163 @@
+:root {
+  --main-blue: #003cff; /* メインカラーを定義 */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;   /* 横スクロール禁止 */
+  overflow-y: auto;     /* ページ全体のスクロールは維持 */
+}
+
+
+/* 📌 queue-containerを画面全体に固定 */
+.queue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* ← 上から順に並べる */
+  width: 100%;
+  min-height: 100vh;            /* 画面より小さいときは100vh、超えれば自然に伸びる */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  overflow: visible;            /* 内部スクロールは発生させない */
+}
+
+
+/* 光の玉風 */
+body::before, body::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  filter: blur(120px);
+  z-index: 0;
+}
+body::before {
+  top: -100px;
+  left: -100px;
+}
+body::after {
+  bottom: -150px;
+  right: -150px;
+}
+
+/* タイトル */
+.queue-title {
+  width: 280px;              /* 横幅を固定 */
+  height: 55px;              /* 高さを揃える */
+  margin: -150 auto 50px auto;  /* 中央寄せ */
+  background: linear-gradient(90deg, var(--main-blue), #4a90ff);
+  backdrop-filter: blur(8px);
+  border-radius: 50px;
+  font-size: 1.5rem;         /* フォントサイズを揃える */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 16px rgba(7, 85, 255, 0.4);
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* コンテナ */
+.queue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   /* 縦中央配置したいなら工夫必要 */
+  width: 100%;
+  min-height: 100vh;         /* ← 高さは最低100vh、固定しない */
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  overflow: visible;         /* ← 内側スクロール禁止 */
+}
+
+
+/* 番号カード */
+.display-box {
+  width: 85vw;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  padding: 40px 24px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 30px rgba(0, 60, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.display-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 60, 255, 0.3);
+}
+
+/* タイトル（大きめにしてカード上に配置） */
+.display-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0033cc;
+  text-shadow: 0 2px 6px rgba(0, 60, 255, 0.25);
+  letter-spacing: 1px;
+}
+
+/* ボタン */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 420px;
+  margin: 5 auto 40px auto;  /* ← 下の40pxが大きい */
+  margin-bottom: -150px; /* ← ここを好きな値にするだけ */
+}
+
+
+.button-row {
+  display: flex;
+  gap: 16px;
+  height: 70px;
+}
+
+.button-row button,
+.full-width-button {
+  flex: 1;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.25);
+  color: #003cff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
+}
+
+.button-row button:hover,
+.full-width-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.button-row button.active {
+  background: linear-gradient(135deg, #003cff, #4a90ff);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.4);
+}

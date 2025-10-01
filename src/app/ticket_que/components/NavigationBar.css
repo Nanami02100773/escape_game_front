@@ -1,0 +1,122 @@
+:root {
+  --header-height: 60px;
+  --footer-height: 60px;
+}
+
+/* --- ヘッダー --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: #ffffff;
+  display: flex;
+  justify-content: flex-start; /* 左寄せ */
+  align-items: center;
+  padding: 0 16px;
+  z-index: 1000;
+  border-bottom: 1px solid #ccc;
+}
+
+/* 更新ボタン */
+.reload-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* --- フッター --- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  display: flex;
+  background: #f5f5f5;
+  border-top: 1px solid #ccc;
+  z-index: 1000;
+}
+
+/* フッターボタン共通 */
+.footer-button {
+  flex: 1;
+  display: flex;
+  align-items: center;   /* 縦中央 */
+  justify-content: center; /* 横中央 */
+  border: none;
+  background: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  text-decoration: none;  /* 下線を消す */
+  color: black;           /* 青リンクを黒固定 */
+}
+
+/* 最後のボタンだけ右線を消す */
+.footer-button:last-child {
+  border-right: none;
+}
+
+/* クリック時 */
+.footer-button:active {
+  background: #ddd;
+}
+
+/* ホバー時 */
+.footer-button:hover {
+  background: #eee;
+  color: #333;
+}
+
+/* --- コンテンツ全体に余白を確保 --- */
+.main-content {
+  padding-top: calc(var(--header-height) + 20px);   /* ヘッダー分 + 余裕 */
+  padding-bottom: calc(var(--footer-height) + 20px); /* フッター分 + 余裕 */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 選択中のボタン */
+.footer-button.active {
+  background: #0755ff !important;
+  color: white !important;
+}
+
+/* アイコン＋テキストを縦並びに */
+.footer-icon-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px; /* アイコンと文字の間隔 */
+}
+
+/* 通常時のアイコン */
+.footer-icon-text img {
+  width: 40px !important;
+  height: 40px !important;
+  filter: none; /* デフォルトは黒のまま */
+}
+
+/* 選択中（active）のときだけ白にする */
+.footer-button.active img {
+  filter: brightness(0) invert(1);
+}
+
+
+/* テキストをさらに小さめに */
+.footer-icon-text span {
+  font-size: 0.7rem; /* さらに小さく */
+  font-weight: 400;  /* 少し細めで軽く */
+}
