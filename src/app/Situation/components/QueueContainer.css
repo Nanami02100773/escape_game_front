@@ -8,13 +8,14 @@ html, body {
   padding: 0;
   height: auto;
   min-height: 100vh;
-  /* 🌟 濃い黄色を上に配置 */
   background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
   
+  /* 🌟 横スクロール禁止 */
   overflow-x: hidden;
   overflow-y: auto;
-  padding-top: 10px;   /* ナビゲーションの高さ分余白を確保 */
-  padding-bottom: 40px; /* フッターなどの余白 */
+
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 
 /* 📌 queue-container も黄色で統一 */
@@ -31,6 +32,7 @@ html, body {
   padding: 0;
   overflow: visible;
   background: var(--bg-yellow); /* コンテナも黄色 */
+  overflow-x: hidden;
 }
 
 
