@@ -88,3 +88,28 @@ html, body {
     margin-top: 0;
   }
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
+  font-family: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
+  text-align: center;   /* ← テキスト中央 */
+}
+
+/* ページごとの共通レイアウト */
+main, 
+.page-container, 
+.queue-container, 
+.summary-container, 
+.description-page {
+  width: 100%;
+  max-width: 600px;   /* スマホでも読みやすい幅に制限 */
+  margin: 0 auto;     /* ← これで中央寄せ */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 中身を中央寄せ */
+  text-align: center;  /* テキストも中央 */
+}
