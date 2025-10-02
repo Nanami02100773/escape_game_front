@@ -129,3 +129,39 @@ html, body {
   transform: translateY(0) scale(1.02);
 }
 
+.summary-row {
+  display: flex;
+  align-items: center; /* ← ここを center に変更して上下中央揃え */
+  justify-content: flex-start;
+  gap: 20px;
+  text-align: left;
+  flex-wrap: wrap; /* 📱 小さい画面では縦並びに */
+}
+
+
+.summary-image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.summary-side-image {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(7, 85, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.summary-content {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  word-break: break-word; /* 日本語の不自然な分割を防ぐ */
+  white-space: normal;
+  padding-top: 5px;
+}
+
