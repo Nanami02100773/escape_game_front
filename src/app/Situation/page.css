@@ -117,8 +117,9 @@ main,
 /* 📱 スマホ（600px以下）の場合 */
 @media (max-width: 600px) {
   .queue-container {
-    justify-content: center; /* 全体を中央寄せ */
-    text-align: center;
+    justify-content: center;   /* 縦方向中央 */
+    align-items: center;       /* 横方向中央 */
+    text-align: center;        /* テキスト中央 */
     padding: 20px 0;
   }
 
@@ -128,26 +129,31 @@ main,
   }
 
   .display-box {
-    width: 95%; /* スマホでは幅を広めに */
+    width: 95%;        /* スマホでは幅を広めに */
     max-width: 350px;
-    margin: 20px auto;
+    margin: 20px auto; /* 中央に */
   }
 
   .button-group {
     width: 95%;
     max-width: 350px;
-    margin: 20px auto;
+    margin: 20px auto; /* ← 修正 */
   }
 
   .button-row {
-    flex-direction: column; /* ボタンを縦並びに */
+    flex-direction: column; /* ボタンを縦並び */
     gap: 12px;
     height: auto;
+    width: 100%;
+    align-items: center;    /* 子要素を中央揃え */
   }
 
   .button-row button {
-    width: 100%;
+    width: 100%;     /* 横幅いっぱい */
+    max-width: 350px;
     height: 60px;
     font-size: 1.1rem;
+    margin: 0 auto;  /* 念のため中央寄せ */
+    display: block;
   }
 }
