@@ -57,30 +57,27 @@ body::after {
 
 .display-box {
   border: none; /* ← 枠線を消す */
-   margin-top: 20px; /* タイトルと被らないように上に余白 */
+  margin-top: 20px; /* タイトルと被らないように上に余白 */
 }
 
 
+/* タイトル */
 .queue-title {
   width: 280px;
   height: 55px;
-  margin: 40px auto 40px auto; /* ← 正の値にして上下余白を揃える */
+  margin: 20px auto 20px auto; /* 上下の余白を20pxだけに縮める */
   background: linear-gradient(90deg, var(--main-blue), #4a90ff);
-  backdrop-filter: blur(8px);
   border-radius: 50px;
   font-size: 1.5rem;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   font-weight: bold;
   box-shadow: 0 4px 16px rgba(7, 85, 255, 0.4);
-  letter-spacing: 1px;
   position: relative;
-  z-index: 2; /* ← 白いカードより手前に */
+  z-index: 2;
 }
-
 
 
 /* コンテナ */
