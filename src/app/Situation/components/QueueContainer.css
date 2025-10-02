@@ -1,29 +1,33 @@
 :root {
   --main-blue: #003cff; /* メインカラーを定義 */
+  --bg-yellow: background: linear-gradient(180deg, #fffde7 0%, #fff59d 100%);
+
+
 }
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;   /* 横スクロール禁止 */
-  overflow-y: auto;     /* ページ全体のスクロールは維持 */
+  background: var(--bg-yellow); /* ページ全体を黄色に */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-
-/* 📌 queue-containerを画面全体に固定 */
+/* 📌 queue-container も黄色で統一 */
 .queue-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  /* ← 上から順に並べる */
+  justify-content: flex-start;
   width: 100%;
-  min-height: 100vh;            /* 画面より小さいときは100vh、超えれば自然に伸びる */
+  min-height: 100vh;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
   padding: 0;
-  overflow: visible;            /* 内部スクロールは発生させない */
+  overflow: visible;
+  background: var(--bg-yellow); /* コンテナも黄色 */
 }
 
 
@@ -38,6 +42,7 @@ body::before, body::after {
   filter: blur(120px);
   z-index: 0;
 }
+
 body::before {
   top: -100px;
   left: -100px;
@@ -47,11 +52,16 @@ body::after {
   right: -150px;
 }
 
+.display-box {
+  border: none; /* ← 枠線を消す */
+}
+
+
 /* タイトル */
 .queue-title {
   width: 280px;              /* 横幅を固定 */
   height: 55px;              /* 高さを揃える */
-  margin: -150 auto 50px auto;  /* 中央寄せ */
+  margin: -300 auto 70px auto;  /* 中央寄せ */
   background: linear-gradient(90deg, var(--main-blue), #4a90ff);
   backdrop-filter: blur(8px);
   border-radius: 50px;
@@ -86,18 +96,16 @@ body::after {
 
 
 /* 番号カード */
+/* 📌 数字が出るカード部分 */
 .display-box {
   width: 85vw;
   max-width: 420px;
-  background: rgba(255, 255, 255, 0.25);
+  background: #fff; /* ← 白に変更 */
   border-radius: 20px;
   padding: 40px 24px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
   text-align: center;
   margin-bottom: 40px;
-  box-shadow: 0 8px 30px rgba(0, 60, 255, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 60, 255, 0.15);
 }
 
 .display-box:hover {
@@ -133,31 +141,69 @@ body::after {
   height: 70px;
 }
 
+/* ボタン共通 */
 .button-row button,
 .full-width-button {
   flex: 1;
   font-size: 1.2rem;
   border: none;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.25);
-  color: #003cff;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.25s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
 }
 
-.button-row button:hover,
-.full-width-button:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
-}
-
-.button-row button.active {
+/* 左の「待ち組数」ボタン → 青 */
+.button-row button:first-child {
   background: linear-gradient(135deg, #003cff, #4a90ff);
   color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.4);
 }
+
+/* 右の「お呼び出し番号」ボタン → 白 */
+.button-row button:last-child {
+  background: #fff; /* ← 完全な白 */
+  color: var(--main-blue);
+}
+
+/* ホバー時の効果 */
+.button-row button:hover,
+.full-width-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.25);
+}
+
+/* 共通デザイン（デフォルトは白） */
+.button-row button {
+  flex: 1;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
+  background: #fff; /* ← デフォルト白 */
+  color: var(--main-blue);
+}
+
+/* 選択中（active）のボタンだけ青に */
+.button-row button.active {
+  background: linear-gradient(135deg, #003cff, #4a90ff);
+  color: #fff; /* 白文字 */
+  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.3);
+}
+
+/* 選択されていないボタンは必ず白 */
+.button-row button:not(.active) {
+  background: #fff;
+  color: var(--main-blue);
+  box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
+}
+
+/* ホバー時の効果 */
+.button-row button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.25);
+}
+

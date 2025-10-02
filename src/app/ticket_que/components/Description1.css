@@ -2,20 +2,30 @@
   --header-height: 60px;
   --main-blue: #0755ff;     /* メインブルー */
   --light-blue: #e6f0ff;    /* 背景用の淡いブルー */
-  --gray-bg: #f8f9fa;       /* サブ背景 */
+  --gray-bg: #f8f9fa;
 }
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 100vh;
+  /* 🌟 濃い黄色を上に配置 */
+  background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 40px;   /* ナビゲーションの高さ分余白を確保 */
+  padding-bottom: 80px; /* フッターなどの余白 */
+}
+
 
 .summary-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto 10px auto;
-  padding-top: calc(var(--header-height) + 20px);
-  padding-bottom: 30px;
-  background: var(--gray-bg);
+  overflow: visible; /* ← スクロール禁止 */
 }
 
-/* カード */
+
 .summary-card {
   background-color: #fff;
   border-radius: 12px;
@@ -39,7 +49,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
@@ -48,8 +57,8 @@
   width: 260px;
   height: 40px;
   margin: 0 auto 20px auto;
-  background: #5f8fff; /* メインより少し淡い青 */
-  color: #fff;
+  background: #5f8fff; /* ← メインより少し淡い青 */
+  color: #fff; /* 白文字 */
   border-radius: 50px;
   font-size: 1.2rem;
   text-align: center;
@@ -59,6 +68,8 @@
   font-weight: 600;
   border: 1px solid rgba(7, 85, 255, 0.15);
 }
+
+
 
 /* 説明文ボックス */
 .summary-content-box {
@@ -117,3 +128,4 @@
   opacity: 1;
   transform: translateY(0) scale(1.02);
 }
+

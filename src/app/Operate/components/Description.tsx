@@ -26,7 +26,7 @@ const Description = () => {
   }, []);
 
   return (
-    <div className="summary-container">
+  <div className="summary-container">
 
       {/* 操作説明タイトル → アニメーションなし */}
       <div className="summary-section">
@@ -128,7 +128,7 @@ const Description = () => {
         </div>
 
       </div>
-    </div>
+  </div>
   );
 };
 

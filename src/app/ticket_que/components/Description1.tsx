@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import "./Description.css";
+import "./Description1.css";
 import { useEffect, useRef } from "react";
 
 const Description = () => {
