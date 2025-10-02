@@ -113,3 +113,41 @@ main,
   align-items: center; /* 中身を中央寄せ */
   text-align: center;  /* テキストも中央 */
 }
+
+/* 📱 スマホ（600px以下）の場合 */
+@media (max-width: 600px) {
+  .queue-container {
+    justify-content: center; /* 全体を中央寄せ */
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .queue-title {
+    margin: 10px auto;
+    font-size: 1.3rem;
+  }
+
+  .display-box {
+    width: 95%; /* スマホでは幅を広めに */
+    max-width: 350px;
+    margin: 20px auto;
+  }
+
+  .button-group {
+    width: 95%;
+    max-width: 350px;
+    margin: 20px auto;
+  }
+
+  .button-row {
+    flex-direction: column; /* ボタンを縦並びに */
+    gap: 12px;
+    height: auto;
+  }
+
+  .button-row button {
+    width: 100%;
+    height: 60px;
+    font-size: 1.1rem;
+  }
+}
