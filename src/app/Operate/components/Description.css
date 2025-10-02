@@ -165,3 +165,26 @@ html, body {
   padding-top: 5px;
 }
 
+
+
+/* デフォルトは左寄せ */
+.summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+/* スマホ用（幅600px以下なら中央寄せに変更） */
+@media (max-width: 600px) {
+  .summary-row {
+    justify-content: center;
+    text-align: center; /* テキストも中央揃えに */
+  }
+
+  .summary-content {
+    text-align: center; /* 説明文も中央に */
+  }
+}
