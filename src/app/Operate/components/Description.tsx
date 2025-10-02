@@ -88,7 +88,7 @@ const Description = () => {
                 />
               </div>
               <div className="summary-content no-wrap">
-                制限時間は60分です。スマートフォンやメモの使用は可能です。スタッフからのヒントは最大3回まで受け取れます。
+                最新の番号から何待っているかを表示しています。
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ const Description = () => {
                 />
               </div>
               <div className="summary-content no-wrap">
-                危険行為は禁止です。他の参加者の迷惑になる行為はご遠慮ください。途中退出はスタッフにお知らせください。
+                現在、整理券番号の何番まで進んでいるかを表示しています。
               </div>
             </div>
           </div>
