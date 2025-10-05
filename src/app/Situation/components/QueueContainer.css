@@ -1,26 +1,20 @@
 :root {
-  --main-blue: #003cff; /* メインカラーを定義 */
+  --main-blue: #003cff;
 }
-
 
 html, body {
   margin: 0;
   padding: 0;
   height: auto;
   min-height: 100vh;
-  /* 🌟 濃い黄色を上に配置 */
   background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
-  
   overflow-x: hidden;
   overflow-y: auto;
-  padding-top: 10px;   /* ナビゲーションの高さ分余白を確保 */
-  padding-bottom: 40px; /* フッターなどの余白 */
-    /* 🌟 横スクロール禁止 */
-  overflow-x: hidden;
-  overflow-y: auto;
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 
-/* 📌 queue-container も黄色で統一 */
+/* コンテナ */
 .queue-container {
   display: flex;
   flex-direction: column;
@@ -33,12 +27,10 @@ html, body {
   z-index: 1;
   padding: 0;
   overflow: visible;
-  background: var(--bg-yellow); /* コンテナも黄色 */
-  overflow-x: hidden;
+  background: var(--bg-yellow);
 }
 
-
-/* 光の玉風 */
+/* 光の玉エフェクト */
 body::before, body::after {
   content: "";
   position: absolute;
@@ -49,27 +41,14 @@ body::before, body::after {
   filter: blur(120px);
   z-index: 0;
 }
-
-body::before {
-  top: -100px;
-  left: -100px;
-}
-body::after {
-  bottom: -150px;
-  right: -150px;
-}
-
-.display-box {
-  border: none; /* ← 枠線を消す */
-  margin-top: 20px; /* タイトルと被らないように上に余白 */
-}
-
+body::before { top: -100px; left: -100px; }
+body::after { bottom: -150px; right: -150px; }
 
 /* タイトル */
 .queue-title {
   width: 280px;
   height: 55px;
-  margin: 20px auto 20px auto; /* 上下の余白を20pxだけに縮める */
+  margin: 20px auto;
   background: linear-gradient(90deg, var(--main-blue), #4a90ff);
   border-radius: 50px;
   font-size: 1.5rem;
@@ -79,46 +58,27 @@ body::after {
   color: #fff;
   font-weight: bold;
   box-shadow: 0 4px 16px rgba(7, 85, 255, 0.4);
-  position: relative;
   z-index: 2;
 }
 
-
-/* コンテナ */
-.queue-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;   /* 縦中央配置したいなら工夫必要 */
-  width: 100%;
-  min-height: 100vh;         /* ← 高さは最低100vh、固定しない */
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-  padding: 0;
-  overflow: visible;         /* ← 内側スクロール禁止 */
-}
-
-
-/* 番号カード */
-/* 📌 数字が出るカード部分 */
+/* 表示ボックス */
 .display-box {
   width: 85vw;
   max-width: 420px;
-  background: #fff; /* ← 白に変更 */
+  background: #fff;
   border-radius: 20px;
   padding: 40px 24px;
   text-align: center;
   margin-bottom: 40px;
   box-shadow: 0 8px 30px rgba(0, 60, 255, 0.15);
+  transition: all 0.3s ease;
 }
-
 .display-box:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 40px rgba(0, 60, 255, 0.3);
 }
 
-/* タイトル（大きめにしてカード上に配置） */
+/* 表示タイトル */
 .display-title {
   font-size: 1.6rem;
   font-weight: 700;
@@ -128,28 +88,29 @@ body::after {
   letter-spacing: 1px;
 }
 
-/* ボタン */
+/* ボタングループ */
 .button-group {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
   max-width: 420px;
-  margin: 5 auto 40px auto;  /* ← 下の40pxが大きい */
-  margin-bottom: -150px; /* ← ここを好きな値にするだけ */
+  margin: 5 auto 40px auto;
+  margin-bottom: -150px;
 }
 
-
+/* ボタン行 */
 .button-row {
   display: flex;
-  gap: 16px;
-  height: 70px;
+  gap: 14px; /* ← 少し狭く */
+  height: 65px; /* ← ボタン高さ少し低く */
 }
 
-/* ボタン共通 */
+/* 共通ボタン */
 .button-row button,
 .full-width-button {
-  flex: 1;
+  width: 140px; /* ← 元160px → 少し狭く変更 */
+  flex: 0 0 auto;
   font-size: 1.2rem;
   border: none;
   border-radius: 14px;
@@ -159,99 +120,127 @@ body::after {
   box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
 }
 
-/* 左の「待ち組数」ボタン → 青 */
-.button-row button:first-child {
+
+
+
+/* アクティブ・非アクティブ */
+.button-row button.active {
   background: linear-gradient(135deg, #003cff, #4a90ff);
   color: #fff;
+  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.3);
 }
-
-/* 右の「お呼び出し番号」ボタン → 白 */
-.button-row button:last-child {
-  background: #fff; /* ← 完全な白 */
+.button-row button:not(.active) {
+  background: #fff;
   color: var(--main-blue);
 }
 
-/* ホバー時の効果 */
+/* ホバー時 */
 .button-row button:hover,
 .full-width-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 60, 255, 0.25);
 }
 
-/* 共通デザイン（デフォルトは白） */
-.button-row button {
-  flex: 1;
-  font-size: 1.2rem;
+/* 数字入力欄 */
+.number-input {
+  flex: 1.6; /* ← 広く */
+  height: 60px;
+  font-size: 1.4rem;
+  text-align: center;
+  border-radius: 14px;
+  border: 2px solid var(--main-blue);
+  outline: none;
+  color: #003cff;
+  background: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 60, 255, 0.15);
+}
+.number-input:focus {
+  border-color: #4a90ff;
+  box-shadow: 0 0 10px rgba(0, 60, 255, 0.4);
+  transform: translateY(-2px);
+}
+.number-input::placeholder {
+  color: #999;
+  font-size: 1rem;
+}
+
+/* 入力＋検索ボタン横並び */
+.input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* ← 少し狭く */
+  margin: 20px auto;
+  width: 100%;
+  max-width: 440px; /* ← 入力エリア広く */
+}
+
+/* 検索ボタン */
+.search-button {
+  flex: 0.5;
+  height: 60px;
+  background: linear-gradient(135deg, #003cff, #4a90ff); /* ← 青ボタンと同じグラデーションに変更 */
+  color: #fff;
+  font-weight: bold;
   border: none;
   border-radius: 14px;
-  font-weight: bold;
+  padding: 0 18px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
-  background: #fff; /* ← デフォルト白 */
-  color: var(--main-blue);
+  box-shadow: 0 4px 12px rgba(0, 60, 255, 0.25); /* ← 青系の影に統一 */
 }
 
-/* 選択中（active）のボタンだけ青に */
-.button-row button.active {
-  background: linear-gradient(135deg, #003cff, #4a90ff);
-  color: #fff; /* 白文字 */
-  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.3);
-}
-
-/* 選択されていないボタンは必ず白 */
-.button-row button:not(.active) {
-  background: #fff;
-  color: var(--main-blue);
-  box-shadow: 0 4px 12px rgba(0, 60, 255, 0.15);
-}
-
-/* ホバー時の効果 */
-.button-row button:hover {
+.search-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 60, 255, 0.4); /* ← ホバー時も青系 */
 }
 
 
-/* 📱 スマホ（600px以下）の場合 */
+/* スマホ対応 */
 @media (max-width: 600px) {
   .queue-container {
-    justify-content: flex-start; /* 上から配置 */
-    align-items: center;         /* 中央寄せ */
-    text-align: center;
     padding: 20px 0;
   }
 
-  .queue-title {
-    margin: 10px auto;
-    font-size: 1.3rem;
-  }
-
   .display-box {
-    width: 95%;        /* スマホでは幅を広めに */
-    max-width: 350px;
-    margin: 20px auto;
-  }
-
-  .button-group {
     width: 95%;
     max-width: 350px;
-    margin: 20px auto;
   }
 
   .button-row {
-    flex-direction: column; /* 縦並び */
-    gap: 12px;
-    width: 100%;            /* 行も横幅いっぱい */
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center;
+    gap: 10px;
   }
 
   .button-row button {
-    width: 100%;      /* 横幅いっぱい */
-    height: 60px;
+    flex: 1;
+    min-width: 100px; /* ← 狭く */
+    height: 55px;
+    font-size: 1rem;
+  }
+
+  .input-row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+  }
+
+  .number-input {
+    flex: 1.8; /* ← 広く */
     font-size: 1.1rem;
-    display: block;   /* インライン要素をブロックに */
-    margin: 0;        /* 左右余白なし */
-    border-radius: 12px;
+  }
+
+  .search-button {
+    flex: 0.4; /* ← 細く */
+    height: 55px;
+    padding: 0 14px;
+    font-size: 1rem;
   }
 }
 

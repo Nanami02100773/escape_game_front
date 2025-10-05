@@ -30,24 +30,8 @@ const TicketQuePage: React.FC = () => {
       <NavigationBar />
 
       <div className="attraction-queue">
-        {showGroup ? (
-          <QueueContainer />
-        ) : (
-          <div className="description-container">
-            <div className="desription-button-group">
-              <div className="button-row">
-                <button
-                  className="full-width-button"
-                  onClick={() => setShowGroup(true)}
-                >
-                  待ち時間表示
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+        <QueueContainer />
       </div>
-      {/* <OfficialAccount/> */}
     </div>
   );
 };
