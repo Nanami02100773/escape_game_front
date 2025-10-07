@@ -37,6 +37,6 @@ main,
 
   .description-page {
     width: 100%;
-    padding: 0 10px; /* ← 左右に少し余裕を持たせるとズレ防止 */
+    padding: 0 40px; /* ← 左右に少し余裕を持たせるとズレ防止 */
   }
 }
