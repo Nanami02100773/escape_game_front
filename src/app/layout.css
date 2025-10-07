@@ -33,6 +33,10 @@ main,
   html, body {
     max-width: 100%;
     overflow-x: hidden;
+    touch-action: manipulation; /* ← タップ時の拡大挙動を無効化 */
+    -ms-touch-action: manipulation;
+    }
+
   }
 
  .description-page {
@@ -47,4 +51,4 @@ main,
   overflow-x: hidden;        /* ← 横スクロール禁止 */
   background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
 }
-}
+
