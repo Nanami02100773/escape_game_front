@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        {/* ✅ スマホの拡大防止＋UIズレ防止 */}
+        {/* ✅ スマホでの拡大縮小禁止（ピンチイン・ダブルタップ含む） */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"

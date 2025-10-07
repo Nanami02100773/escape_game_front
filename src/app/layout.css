@@ -41,7 +41,7 @@ main,
   align-items: center;       /* ← 縦方向も中央寄せ */
   flex-direction: column;
   width: 100%;
-  padding: 0 40px;           /* ← 左右に少し余白を追加（安全マージン） */
+  padding: 0 30px;           /* ← 左右に少し余白を追加（安全マージン） */
   box-sizing: border-box;    /* ← paddingを幅計算に含める（ズレ防止） */
   margin: 0 auto;            /* ← ページ全体を中央に配置 */
   overflow-x: hidden;        /* ← 横スクロール禁止 */
