@@ -53,7 +53,7 @@ const Description = () => {
               />
               <div className="summary-content no-wrap">
                 この画面は自動で更新されません。
-                最新の情報を見るには 更新ボタン を押してください。
+                最新の情報を見るには"更新ボタン"を押してください。
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ const Description = () => {
                 />
               </div>
               <div className="summary-content no-wrap">
-                最新の番号から何待っているかを表示しています。
+                最新の番号から何組待っているかを表示しています。
               </div>
             </div>
           </div>
