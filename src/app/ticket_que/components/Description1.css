@@ -144,6 +144,18 @@ html, body {
 
 /* スマホ用（幅600px以下なら中央寄せに変更） */
 @media (max-width: 600px) {
+   html, body {
+    padding-top: 0;          /* 上下の余白をリセット */
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center; /* 横中央 */
+    align-items: center;     /* 縦中央 */
+    flex-direction: column;
+    min-height: 100vh;       /* ビューポート全体の高さを確保 */
+    box-sizing: border-box;
+  }
+
+  
   .summary-row {
     justify-content: center;
     text-align: center;
