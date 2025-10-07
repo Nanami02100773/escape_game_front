@@ -1,31 +1,42 @@
 html, body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-    "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3",
-    "Segoe UI", Roboto, Arial, "Noto Sans JP", sans-serif;
-}
-
-html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
   font-family: "Noto Sans JP", "Hiragino Sans", "Meiryo", sans-serif;
-  text-align: center;   /* ← テキスト中央 */
+  text-align: center;
+  overflow-x: hidden !important;  /* ← 横スクロール完全禁止 */
+  -webkit-text-size-adjust: 100%; /* ← iPhoneで文字拡大防止 */
 }
 
-/* ページごとの共通レイアウト */
-main, 
-.page-container, 
-.queue-container, 
-.summary-container, 
+/* ✅ ページ全体レイアウト共通設定 */
+main,
+.page-container,
+.queue-container,
+.summary-container,
 .description-page {
   width: 100%;
-  max-width: 600px;   /* スマホでも読みやすい幅に制限 */
-  margin: 0 auto;     /* ← これで中央寄せ */
+  max-width: 600px;    /* 読みやすい幅に制限 */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 中身を中央寄せ */
-  text-align: center;  /* テキストも中央 */
+  align-items: center; /* 中央寄せ */
+  text-align: center;
+  box-sizing: border-box;
+  overflow-x: hidden;  /* ← 内部のはみ出し防止 */
 }
 
+/* ✅ スマホでのズレ防止 */
+@media (max-width: 600px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .description-page {
+    width: 100%;
+    padding: 0 10px; /* ← 左右に少し余裕を持たせるとズレ防止 */
+  }
+}
