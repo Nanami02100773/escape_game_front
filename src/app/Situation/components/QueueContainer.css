@@ -200,74 +200,103 @@ body::after { bottom: -150px; right: -150px; }
 
 /* スマホ対応 */
 @media (max-width: 600px) {
+
+  /* ✅ スマホ画面用レイアウト全体調整 */
   .queue-container {
-    padding: 18px 14px;
+    /* 左右の余白をなくして中央寄せに */
+    padding: 18px 0;
+    margin: 0 auto;
     box-sizing: border-box;
-    transform: scale(0.95);
-    transform-origin: top center;
+
+    /* スマホでscaleによるズレを防ぐ */
+    transform: none;
+
+    /* 幅を画面いっぱいに */
+    max-width: 100%;
+
+    /* テキスト中央寄せ */
+    text-align: center;
+
+    /* Flexboxで中身を中央配置 */
+    align-items: center;
   }
 
+  /* ✅ タイトル部分（「現在状況」など） */
   .queue-title {
     width: 280px;
     height: 55px;
     font-size: 1.5rem;
+    /* 上下の余白調整（中央に見えるように） */
     margin: 45px auto 18px auto;
   }
 
+  /* ✅ メインの表示ボックス（待ち組数などを表示） */
   .display-box {
-    width: 92%;
-    max-width: 340px;
-    padding: 32px 20px;
-    margin-bottom: 28px;
+    width: 92%;            /* 幅を少し狭めてスマホにフィット */
+    max-width: 340px;      /* 最大幅を制限 */
+    padding: 32px 20px;    /* 内側の余白を調整 */
+    margin-bottom: 28px;   /* 下の余白を少し詰める */
   }
 
-    .input-row {
-    margin-top: 10px;   /* ← 16px → 10px に変更（上の余白を狭く） */
-    margin-bottom: 22px; /* ← 32px → 22px に変更（下の余白を狭く） */
-    gap: 8px; /* ← 少しだけ詰める */
-    width: 84%;
+  /* ✅ 入力欄と検索ボタンの行全体 */
+  .input-row {
+    margin-top: 10px;      /* 上の余白を詰める */
+    margin-bottom: 22px;   /* 下の余白も詰める */
+    gap: 8px;              /* 間隔を少し狭く */
+    width: 75%;            /* 横幅を調整して中央に配置 */
   }
 
+  /* ✅ 各ブロック要素を中央寄せ */
+  .display-box,
+  .button-group,
+  .input-row {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  /* ✅ 数字入力欄（整理券番号入力など） */
   .number-input {
-    flex: 1.8;
-    height: 55px;
-    font-size: 1.15rem;
+    flex: 1.8;             /* 入力欄を広めに確保 */
+    height: 55px;          /* 高さを少し低く */
+    font-size: 1.15rem;    /* フォントを小さめに調整 */
   }
 
+  /* ✅ 検索ボタン */
   .search-button {
-    flex: 0.4;
-    height: 55px;
-    font-size: 1.05rem;
-    padding: 0 14px;
+    flex: 0.4;             /* ボタン幅をバランス調整 */
+    height: 55px;          /* 高さ調整 */
+    font-size: 1.05rem;    /* 文字サイズ少し小さめ */
+    padding: 0 14px;       /* 内側余白調整 */
   }
 
-  /* ✅ ボタングループを中央＆横並びに固定 */
+  /* ✅ ボタングループ（「待ち組数」「お呼び出し番号」ボタンなど） */
   .button-group {
     width: 100%;
-    max-width: 380px;
+    max-width: 380px;      /* 最大幅を制限して中央に */
     margin: 0 auto 40px auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;/* 縦に並べる */
+    align-items: center;   /* 中央揃え */
   }
 
+  /* ✅ ボタン行（2つのボタンを横並びに） */
   .button-row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center; /* 中央配置 */
     align-items: center;
     flex-wrap: nowrap;
-    gap: 14px; /* 少し広げてタップしやすく */
+    gap: 14px;              /* ボタン間の間隔を確保 */
     width: 100%;
-    max-width: 400px;
+    max-width: 400px;       /* 最大幅制限 */
   }
 
+  /* ✅ 各ボタン（「待ち組数」「お呼び出し番号」） */
   .button-row button {
-    flex: 1;
-    width: 48%; /* ← 幅を少し広げる */
-    height: 65px; /* ← 高さアップ（58→65） */
-    font-size: 1.2rem; /* ← 文字も少し大きく */
-    border-radius: 16px;
+    flex: 1;                /* 均等に横幅を取る */
+    width: 48%;             /* 横幅を調整（2つでちょうど良く） */
+    height: 65px;           /* タップしやすい高さに */
+    font-size: 1.2rem;      /* 文字を少し大きく */
+    border-radius: 16px;    /* 角を丸くしてデザイン統一 */
   }
 }
