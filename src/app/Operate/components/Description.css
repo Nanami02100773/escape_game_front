@@ -181,10 +181,37 @@ html, body {
 @media (max-width: 600px) {
   .summary-row {
     justify-content: center;
-    text-align: center; /* テキストも中央揃えに */
+    text-align: center;
+    flex-direction: column;
+    gap: 14px;
   }
 
   .summary-content {
-    text-align: center; /* 説明文も中央に */
+    text-align: center;
+    font-size: 13px; /* ← 少し小さく */
+    line-height: 1.6;
+  }
+
+  .summary-content-box {
+    width: 90%;
+    padding: 16px;
+    margin-bottom: 25px;
+  }
+
+  .summary-side-image {
+    width: 90px; /* ← 小さめに調整 */
+    border-radius: 6px;
+  }
+
+  .summary-title {
+    width: 220px;  /* ← 少し小さく */
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .summary-card {
+    width: 92%;
+    padding: 28px 16px;
+    margin: 25px auto;
   }
 }

@@ -48,7 +48,7 @@ body::after { bottom: -150px; right: -150px; }
 .queue-title {
   width: 280px;
   height: 55px;
-  margin: 20px auto;
+  margin: 60px auto 20px auto; /* ← 上に広めの余白を追加（上60px, 下20px） */
   background: linear-gradient(90deg, var(--main-blue), #4a90ff);
   border-radius: 50px;
   font-size: 1.5rem;
@@ -60,6 +60,7 @@ body::after { bottom: -150px; right: -150px; }
   box-shadow: 0 4px 16px rgba(7, 85, 255, 0.4);
   z-index: 2;
 }
+
 
 /* 表示ボックス */
 .display-box {
@@ -109,7 +110,7 @@ body::after { bottom: -150px; right: -150px; }
 /* 共通ボタン */
 .button-row button,
 .full-width-button {
-  width: 140px; /* ← 元160px → 少し狭く変更 */
+  width: 200px; /* ← 元160px → 少し狭く変更 */
   flex: 0 0 auto;
   font-size: 1.2rem;
   border: none;
@@ -197,50 +198,76 @@ body::after { bottom: -150px; right: -150px; }
   box-shadow: 0 6px 20px rgba(0, 60, 255, 0.4); /* ← ホバー時も青系 */
 }
 
-
 /* スマホ対応 */
 @media (max-width: 600px) {
   .queue-container {
-    padding: 20px 0;
+    padding: 18px 14px;
+    box-sizing: border-box;
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+
+  .queue-title {
+    width: 280px;
+    height: 55px;
+    font-size: 1.5rem;
+    margin: 45px auto 18px auto;
   }
 
   .display-box {
-    width: 95%;
-    max-width: 350px;
+    width: 92%;
+    max-width: 340px;
+    padding: 32px 20px;
+    margin-bottom: 28px;
+  }
+
+    .input-row {
+    margin-top: 10px;   /* ← 16px → 10px に変更（上の余白を狭く） */
+    margin-bottom: 22px; /* ← 32px → 22px に変更（下の余白を狭く） */
+    gap: 8px; /* ← 少しだけ詰める */
+    width: 84%;
+  }
+
+
+  .number-input {
+    flex: 1.8;
+    height: 55px;
+    font-size: 1.15rem;
+  }
+
+  .search-button {
+    flex: 0.4;
+    height: 55px;
+    font-size: 1.05rem;
+    padding: 0 14px;
+  }
+
+  /* ✅ ボタングループを中央＆横並びに固定 */
+  .button-group {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .button-row {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 14px; /* 少し広げてタップしやすく */
+    width: 100%;
+    max-width: 400px;
   }
 
   .button-row button {
     flex: 1;
-    min-width: 100px; /* ← 狭く */
-    height: 55px;
-    font-size: 1rem;
-  }
-
-  .input-row {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 10px;
-    width: 90%;
-  }
-
-  .number-input {
-    flex: 1.8; /* ← 広く */
-    font-size: 1.1rem;
-  }
-
-  .search-button {
-    flex: 0.4; /* ← 細く */
-    height: 55px;
-    padding: 0 14px;
-    font-size: 1rem;
+    width: 48%; /* ← 幅を少し広げる */
+    height: 65px; /* ← 高さアップ（58→65） */
+    font-size: 1.2rem; /* ← 文字も少し大きく */
+    border-radius: 16px;
   }
 }
-

@@ -63,7 +63,7 @@ const Description = () => {
           <div className="summary-title">ルール</div>
           <div className="summary-content-box">
             <div className="summary-content">
-              <p>・部屋の中に隠された謎解きを探し、爆弾の解除に挑戦するゲームです。</p>
+              <p>・部屋に隠された謎解きを探し,爆弾の解除に挑戦するゲームです。</p>
               <p>・制限時間は１０分です。</p>
             </div>
           </div>
