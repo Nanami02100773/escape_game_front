@@ -26,16 +26,14 @@ const Description = () => {
   }, []);
 
   return (
-  <div className="summary-container">
-
-      {/* 操作説明タイトル → アニメーションなし */}
+    <div className="summary-container">
+      {/* 操作説明タイトル */}
       <div className="summary-section">
         <div className="summary-title main">操作説明</div>
       </div>
 
       {/* 白い大きなボックス */}
       <div className="summary-card">
-
         {/* 更新ボタン */}
         <div
           className="summary-section fade-in"
@@ -73,14 +71,14 @@ const Description = () => {
             <div className="summary-row">
               <div className="summary-image-column">
                 <Image
-                  src="/スクリーンショット 2025-09-30 152246.png"
+                  src="/スクリーンショット 2025-10-07 151229.png"
                   alt="待ち組数画像1"
                   className="summary-side-image"
                   width={150}
                   height={100}
                 />
                 <Image
-                  src="/スクリーンショット 2025-09-30 152233.png"
+                  src="/スクリーンショット 2025-10-07 151211.png"
                   alt="待ち組数画像2"
                   className="summary-side-image"
                   width={150}
@@ -106,14 +104,14 @@ const Description = () => {
             <div className="summary-row">
               <div className="summary-image-column">
                 <Image
-                  src="/スクリーンショット 2025-09-30 152320.png"
+                  src="/スクリーンショット 2025-10-07 151256.png"
                   alt="お呼び出し番号画像1"
                   className="summary-side-image"
                   width={150}
                   height={100}
                 />
                 <Image
-                  src="/スクリーンショット 2025-09-30 152309.png"
+                  src="/スクリーンショット 2025-10-07 151759.png"
                   alt="お呼び出し番号画像2"
                   className="summary-side-image"
                   width={150}
@@ -127,8 +125,32 @@ const Description = () => {
           </div>
         </div>
 
+        {/* 🔍 検索欄（新規追加） */}
+        <div
+          className="summary-section fade-in"
+          ref={(el) => {
+            if (el) sectionsRef.current[3] = el;
+          }}
+        >
+          <div className="summary-title">検索欄</div>
+          <div className="summary-content-box">
+            <div className="summary-row">
+              <Image
+                src="/スクリーンショット 2025-10-07 151744.png"
+                alt="検索欄の説明画像"
+                className="summary-side-image"
+                width={150}
+                height={100}
+              />
+              <div className="summary-content no-wrap">
+                整理券番号を入力して「検索」ボタンを押すと、
+                自分の番号から数えた待ち組数を確認できます。
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </div>
+    </div>
   );
 };
 
