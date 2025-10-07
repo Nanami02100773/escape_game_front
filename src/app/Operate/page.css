@@ -1,16 +1,22 @@
+/* ページ全体の基本設定 */
 .description-page {
   display: flex;
-  justify-content: center;  /* 横方向中央 */
-  align-items: center;      /* 縦方向中央 */
-  min-height: 100vh;        /* 画面全体の高さ確保 */
+  justify-content: center;   /* 横中央寄せ */
+  align-items: center;       /* 縦中央寄せ */
+  min-height: 100vh;         /* 画面全体の高さ */
   background: linear-gradient(180deg, #fff59d 0%, #fffde7 100%);
+  overflow-x: hidden;        /* ← 横スクロール禁止！ */
+  overflow-y: auto;          /* ← 縦方向のみスクロール許可 */
+  width: 100%;
 }
 
+/* 中央配置のラッパー */
 .center-wrapper {
   display: flex;
-  flex-direction: column;   /* 縦並び */
-  align-items: center;      /* 中身も横中央 */
-  text-align: center;       /* テキストも中央寄せ */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 100%;
-  max-width: 600px;         /* スマホ・PCで見やすい幅 */
+  max-width: 600px;
+  margin: 0 auto;
 }
