@@ -207,6 +207,7 @@ html, body {
     width: 220px;  /* ← 少し小さく */
     height: 36px;
     font-size: 1rem;
+    margin-top: 40px; /* ✅ ← ここで上の空間を追加！ */
   }
 
   .summary-card {

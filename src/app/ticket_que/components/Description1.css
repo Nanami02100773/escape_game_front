@@ -5,7 +5,6 @@
   --gray-bg: #f8f9fa;
 }
 
-
 html, body {
   margin: 0;
   padding: 0;
@@ -19,6 +18,7 @@ html, body {
   padding-top: 40px;   /* ナビゲーションの高さ分余白を確保 */
   padding-bottom: 80px; /* フッターなどの余白 */
 }
+
 
 
 .summary-container {
@@ -129,6 +129,43 @@ html, body {
   transform: translateY(0) scale(1.02);
 }
 
+.summary-row {
+  display: flex;
+  align-items: center; /* ← ここを center に変更して上下中央揃え */
+  justify-content: flex-start;
+  gap: 20px;
+  text-align: left;
+  flex-wrap: wrap; /* 📱 小さい画面では縦並びに */
+}
+
+
+.summary-image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.summary-side-image {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid rgba(7, 85, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.summary-content {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  word-break: break-word; /* 日本語の不自然な分割を防ぐ */
+  white-space: normal;
+  padding-top: 5px;
+}
+
+
 
 /* デフォルトは左寄せ */
 .summary-row {
@@ -140,22 +177,8 @@ html, body {
   flex-wrap: wrap;
 }
 
-
-
 /* スマホ用（幅600px以下なら中央寄せに変更） */
 @media (max-width: 600px) {
-   html, body {
-    padding-top: 0;          /* 上下の余白をリセット */
-    padding-bottom: 0;
-    display: flex;
-    justify-content: center; /* 横中央 */
-    align-items: center;     /* 縦中央 */
-    flex-direction: column;
-    min-height: 100vh;       /* ビューポート全体の高さを確保 */
-    box-sizing: border-box;
-  }
-
-  
   .summary-row {
     justify-content: center;
     text-align: center;
@@ -184,6 +207,7 @@ html, body {
     width: 220px;  /* ← 少し小さく */
     height: 36px;
     font-size: 1rem;
+    margin-top: 40px; /* ✅ ← ここで上の空間を追加！ */
   }
 
   .summary-card {
@@ -192,6 +216,7 @@ html, body {
     margin: 25px auto;
   }
 }
+
 
 /* 注意事項（3番目のセクション）の本文だけ左寄せ */
 /* ルール（2番目）と注意事項（3番目）の本文だけ左寄せ */

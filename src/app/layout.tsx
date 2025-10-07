@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        {/* ✅ スマホでの拡大縮小禁止（ピンチイン・ダブルタップ含む） */}
+        {/* ✅ viewport設定を最優先にしてズーム防止・ズレ防止 */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -33,6 +33,11 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          overflowX: "hidden",  // ← JSでも保険をかける
+          overscrollBehaviorX: "none", // ← iOSスクロール反動防止
+          WebkitTextSizeAdjust: "100%", // ← iPhoneの自動拡大防止
+        }}
       >
         {children}
       </body>
