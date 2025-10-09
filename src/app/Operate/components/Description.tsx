@@ -53,7 +53,7 @@ const Description = () => {
               />
               <div className="summary-content no-wrap">
                 この画面は自動で更新されません。
-                最新の情報を見るには"更新ボタン"を押してください。
+                最新の情報を見るには「更新ボタン」を押してください。
               </div>
             </div>
           </div>
