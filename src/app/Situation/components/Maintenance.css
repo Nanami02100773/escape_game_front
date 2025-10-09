@@ -1,0 +1,25 @@
+.maintenance-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e0e0e0, #cfcfcf);
+}
+
+.maintenance-box {
+  text-align: center;
+  background: white;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.maintenance-box h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.maintenance-box p {
+  font-size: 1rem;
+  color: #555;
+}

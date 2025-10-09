@@ -4,6 +4,7 @@ import "./page.css";
 import NavigationBar from "./components/NavigationBar";
 import QueueContainer from "./components/QueueContainer";
 import LoadingScreen from "./components/LoadingScreen"; // ← 追加
+// import Maintenance from "./components/Maintenance";
 // import OfficialAccount from "./components/OfficialAccount";
 
 
@@ -31,6 +32,7 @@ const TicketQuePage: React.FC = () => {
 
       <div className="attraction-queue">
         <QueueContainer />
+        {/* <Maintenance/> */}
       </div>
     </div>
   );
